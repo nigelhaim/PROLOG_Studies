@@ -4,10 +4,8 @@ create(Position) :-
     Row =< 7,
     Col >= 0, 
     Col =< 7.
-
-whiteQueen(Row1, Col1).
-blackQueen(Row2, Col2).
-
-attack(whiteQueen, blackQueen) :-
-    whiteQueen =:= blackQueen;
-    abs(whiteQueen - blackQueen)
+    
+attack((Row1, Col1), (Row2, Col2)) :-
+    Row1 =:= Row2;
+    Col1 =:= Col2;
+    abs(Row1 - Row2) =:= abs(Col1 - Col2).
